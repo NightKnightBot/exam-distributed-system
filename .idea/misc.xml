@@ -6,6 +6,10 @@
       <list>
         <option value="$PROJECT_DIR$/direction_service/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/eastDirection/pom.xml" />
+        <option value="$PROJECT_DIR$/northDirection/pom.xml" />
+        <option value="$PROJECT_DIR$/southDirection/pom.xml" />
+        <option value="$PROJECT_DIR$/westDirection/pom.xml" />
       </list>
     </option>
   </component>
