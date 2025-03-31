@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .header {
+            background-color: #00a9e0;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-reset {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        .result-container {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .disclaimer {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+            text-align: justify;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function fetchResult() {
+            const state = document.getElementById('state').value;
+            const centerId = document.getElementById('centerId').value;
+            const admitCardId = document.getElementById('admitCardId').value;
+            
+            if (!state || !centerId || !admitCardId) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            document.getElementById('resultDisplay').innerText = 'Result will be displayed here.';
+        }
+    </script>
+</head>
+<body>
+    <div class="header">Central Board of Secondary Education - Examination Results</div>
+    <div class="container">
+        <h2>Secondary School Examination (Class X) Results 2024</h2>
+        <form onsubmit="event.preventDefault(); fetchResult();">
+            <label for="state">Your State:</label>
+            <select id="state" required>
+                <option value="">Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+            
+            <label for="centerId">Your Center ID:</label>
+            <input type="text" id="centerId" required>
+            
+            <label for="admitCardId">Admit Card ID:</label>
+            <input type="text" id="admitCardId" required>
+            
+            <div class="button-container">
+                <button type="submit" class="btn btn-submit">Submit</button>
+                <button type="reset" class="btn btn-reset">Reset</button>
+            </div>
+        </form>
+        <h3>Result:</h3>
+        <div class="result-container">
+            <pre id="resultDisplay">Result will be displayed here.</pre>
+        </div>
+    </div>
+    <div class="disclaimer">
+        <span class="highlight">Disclaimer:</span> Neither NIC nor the Exam Board is responsible for any inadvertent errors in results published online. The results available online are for immediate information only and cannot be treated as original mark sheets. Original mark sheets have been issued separately.
+    </div>
+</body>
+</html>
