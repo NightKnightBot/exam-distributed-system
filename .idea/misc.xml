@@ -12,6 +12,12 @@
         <option value="$PROJECT_DIR$/westDirection/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/center_service/pom.xml" />
+        <option value="$PROJECT_DIR$/person/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="24" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

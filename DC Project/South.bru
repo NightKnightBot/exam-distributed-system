@@ -1,0 +1,21 @@
+meta {
+  name: South
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/process
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "direction": "SOUTH",
+    "state": null,
+    "center": null,
+    "rollNumber": null,
+    "marks": null
+  }
+}

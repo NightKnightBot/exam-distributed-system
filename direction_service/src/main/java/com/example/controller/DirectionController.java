@@ -1,24 +1,20 @@
 package com.example.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import com.example.service.DirectionService;
+import com.example.dto.ServiceData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.entity.Direction;
+
 
 @RestController
 public class DirectionController {
-    Direction direction = null;
-    @GetMapping("/")
-    public Direction hello() {
-        if(direction == null)
-            return null;
-        else
-            return direction;
-    }
+    @Autowired
+    DirectionService service;
 
-    @PostMapping("/")
-    public void createDirection(@RequestBody Direction direction) {
-        this.direction = direction;
+    @PostMapping("/process")
+    public ServiceData processDirection(@RequestBody ServiceData serviceData) {
+        return service.processData(serviceData);
     }
 }
