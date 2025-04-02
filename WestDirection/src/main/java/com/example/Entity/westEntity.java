@@ -1,16 +1,42 @@
 package com.example.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="westDir")
+@Table(name="WEST_STATES")
 public class westEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="WEST_ID")
+    int id;
 
-    @Getter@Setter
+    @Column(name="WEST_STATE")
     String westState;
-    @Getter@Setter
+
+    @Column(name="WEST_SERVICE")
     String westCentre;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getWestState() {
+        return westState;
+    }
+
+    public void setWestState(String westState) {
+        this.westState = westState;
+    }
+
+    public String getWestCentre() {
+        return westCentre;
+    }
+
+    public void setWestCentre(String westCentre) {
+        this.westCentre = westCentre;
+    }
 }

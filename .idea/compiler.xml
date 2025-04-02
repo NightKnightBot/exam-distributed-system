@@ -7,29 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="direction_service" />
+        <module name="NorthDirection" />
         <module name="WestDirection" />
         <module name="SouthDirection" />
-        <module name="eurekaServer" />
-      </profile>
-      <profile name="Annotation profile for westDirection" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
         <module name="EastDirection" />
-      </profile>
-      <profile name="Annotation profile for southDirection" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
-        </processorPath>
-        <module name="NorthDirection" />
+        <module name="TNService" />
+        <module name="direction_service" />
+        <module name="MHService" />
+        <module name="eurekaServer" />
+        <module name="ASService" />
+        <module name="PBService" />
       </profile>
       <profile name="Annotation profile for demo (4)" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -49,9 +36,13 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ASService" options="-parameters" />
       <module name="EastDirection" options="-parameters" />
+      <module name="MHService" options="-parameters" />
       <module name="NorthDirection" options="-parameters" />
+      <module name="PBService" options="-parameters" />
       <module name="SouthDirection" options="-parameters" />
+      <module name="TNService" options="-parameters" />
       <module name="WestDirection" options="-parameters" />
       <module name="center_service" options="-parameters" />
       <module name="demo (4)" options="-parameters" />

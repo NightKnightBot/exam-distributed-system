@@ -10,6 +10,10 @@
         <option value="$PROJECT_DIR$/northDirection/pom.xml" />
         <option value="$PROJECT_DIR$/southDirection/pom.xml" />
         <option value="$PROJECT_DIR$/westDirection/pom.xml" />
+        <option value="$PROJECT_DIR$/ASService/pom.xml" />
+        <option value="$PROJECT_DIR$/TNService/pom.xml" />
+        <option value="$PROJECT_DIR$/PBService/pom.xml" />
+        <option value="$PROJECT_DIR$/MHService/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
