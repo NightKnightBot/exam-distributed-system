@@ -2,14 +2,26 @@ package com.example.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name="eastDir")
 public class eastEntity {
-    @Getter@Setter
     String eastState;
-    @Getter@Setter
     String eastCentre;
+
+    public String getEastState() {
+        return eastState;
+    }
+
+    public void setEastState(String eastState) {
+        this.eastState = eastState;
+    }
+
+    public String getEastCentre() {
+        return eastCentre;
+    }
+
+    public void setEastCentre(String eastCentre) {
+        this.eastCentre = eastCentre;
+    }
 }
