@@ -7,50 +7,48 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="NorthDirection" />
+        <module name="WestDirection" />
+        <module name="SouthDirection" />
+        <module name="EastDirection" />
+        <module name="TNService" />
         <module name="direction_service" />
+        <module name="MHService" />
         <module name="eurekaServer" />
+        <module name="ASService" />
+        <module name="PBService" />
       </profile>
-      <profile name="Annotation profile for westDirection" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="demo" />
-      </profile>
-      <profile name="Annotation profile for southDirection" enabled="true">
+      <profile name="Annotation profile for demo (4)" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
-        <module name="demo (2)" />
-        <module name="demo (1)" />
         <module name="demo (4)" />
-        <module name="demo (3)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ASService" target="24" />
-      <module name="MHService" target="24" />
-      <module name="PBService" target="24" />
-      <module name="TNService" target="1.5" />
+      <module name="center_service" target="24" />
+      <module name="person" target="24" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ASService" options="-parameters" />
+      <module name="EastDirection" options="-parameters" />
       <module name="MHService" options="-parameters" />
+      <module name="NorthDirection" options="-parameters" />
       <module name="PBService" options="-parameters" />
-      <module name="demo" options="-parameters" />
-      <module name="demo (1)" options="-parameters" />
-      <module name="demo (2)" options="-parameters" />
-      <module name="demo (3)" options="-parameters" />
+      <module name="SouthDirection" options="-parameters" />
+      <module name="TNService" options="-parameters" />
+      <module name="WestDirection" options="-parameters" />
+      <module name="center_service" options="-parameters" />
       <module name="demo (4)" options="-parameters" />
       <module name="direction_service" options="-parameters" />
       <module name="eurekaServer" options="-parameters" />
+      <module name="person" options="-parameters" />
     </option>
   </component>
 </project>

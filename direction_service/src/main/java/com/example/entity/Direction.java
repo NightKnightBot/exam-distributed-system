@@ -1,49 +1,42 @@
 package com.example.entity;
 
-public class Direction {
-    String direction;
-    String state;
-    String center;
-    String idcard;
+import jakarta.persistence.*;
 
-    @Override
-    public String toString() {
-        String string = "Direction "+direction+
-                        "\nState: " + state+
-                        "\ncenter: "+ center+
-                        "\nidcard: "+ idcard;
-        return string;
+@Entity
+@Table(name = "DIRECTIONS")
+public class Direction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "DIRECTION_ID")
+    int id;
+
+    @Column(name = "DIRECTION")
+    String direction;
+
+    @Column(name = "SERVICE")
+    String targetUrl;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDirection() {
-	    return direction;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getCenter() {
-        return center;
-    }
-
-    public String getIdcard() {
-        return idcard;
+        return direction;
     }
 
     public void setDirection(String direction) {
         this.direction = direction;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public String getTargetUrl() {
+        return targetUrl;
     }
 
-    public void setCenter(String center) {
-        this.center = center;
-    }
-
-    public void setIdcard(String idcard) {
-        this.idcard = idcard;
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
     }
 }
