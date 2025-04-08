@@ -2,25 +2,25 @@ package com.example.service;
 
 import com.example.client.GenericServiceClient;
 import com.example.dto.ServiceData;
-import com.example.entity.Direction;
-import com.example.repository.DirectionRepository;
+import com.example.entity.West;
+import com.example.repository.WestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DirectionService {
+public class WestService {
     @Autowired
-    DirectionRepository directionRepository;
+    WestRepository westRepository;
     @Autowired
     FeignClientBuilder feignClientBuilder;
 
     public ServiceData processData(ServiceData data) {
-        Direction direction = directionRepository.findByDirection(data.getDirection());
-        if (direction == null) {
+        West west = westRepository.findByDirection(data.getDirection());
+        if (west == null) {
             throw new RuntimeException("Direction not found " + data.getDirection());
         }
-        GenericServiceClient client = feignClientBuilder.forType(GenericServiceClient.class, direction.getTargetUrl()).build();
+        GenericServiceClient client = feignClientBuilder.forType(GenericServiceClient.class, west.getTargetUrl()).build();
         return client.get(data);
     }
 }
