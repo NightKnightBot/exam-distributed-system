@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>SouthDirection</artifactId>
+	<artifactId>NorthDirection</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SouthDirection</name>
+	<name>NorthDirection</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -51,6 +51,11 @@
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
