@@ -31,13 +31,6 @@ public class DirectionService {
         if (direction == null) {
             throw new RuntimeException("Direction not found " + data.getDirection());
         }
-
-//        GenericServiceClient client = Feign.builder()
-//                .encoder(new JacksonEncoder())
-//                .decoder(new JacksonDecoder())
-//                .target(GenericServiceClient.class, direction.getTargetUrl());
-//
-//        return client.process(data);
         return direction.getTargetUrl();
     }
 }
