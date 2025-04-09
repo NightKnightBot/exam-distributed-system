@@ -16,7 +16,7 @@ public class EastService {
     FeignClientBuilder feignClientBuilder;
 
     public ServiceData processData(ServiceData data) {
-        East east = eastRepository.findByDirection(data.getDirection());
+        East east = eastRepository.findByDirection(data.getState());
         if (east == null) {
             throw new RuntimeException("Direction not found " + data.getDirection());
         }

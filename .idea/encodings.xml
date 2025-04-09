@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/ASService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Center1/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/EastDirection/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MHService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NorthDirection/src/main/java" charset="UTF-8" />

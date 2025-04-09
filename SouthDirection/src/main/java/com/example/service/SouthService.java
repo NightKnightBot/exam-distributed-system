@@ -17,9 +17,9 @@ public class SouthService {
     FeignClientBuilder feignClientBuilder;
 
     public ServiceData processData(ServiceData data) {
-        SouthEntity southEntity = southRepository.findByDirection(data.getDirection());
+        SouthEntity southEntity = southRepository.findByDirection(data.getState());
         if (southEntity == null) {
-            throw new RuntimeException("Direction not found " + data.getDirection());
+            throw new RuntimeException("State not found " + data.getState());
         }
 
         GenericServiceClient client = feignClientBuilder.forType(GenericServiceClient.class, southEntity.getTargetUrl()).build();

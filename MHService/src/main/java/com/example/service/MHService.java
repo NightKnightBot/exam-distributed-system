@@ -25,7 +25,7 @@ public class MHService {
     public ServiceData processData(ServiceData data) {
         MHEntity asEntity = mhRepository.findByUid(data.getCenter());
         if (asEntity == null) {
-            throw new RuntimeException("Direction not found " + data.getDirection());
+            throw new RuntimeException("Center not found " + data.getCenter());
         }
         GenericServiceClient client = feignClientBuilder.forType(GenericServiceClient.class, asEntity.getTargetUrl()).build();
         return client.get(data);

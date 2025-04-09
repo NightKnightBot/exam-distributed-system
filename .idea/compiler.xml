@@ -10,6 +10,7 @@
         <module name="NorthDirection" />
         <module name="WestDirection" />
         <module name="SouthDirection" />
+        <module name="Center1" />
         <module name="EastDirection" />
         <module name="TNService" />
         <module name="direction_service" />
@@ -37,6 +38,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ASService" options="-parameters" />
+      <module name="Center1" options="-parameters" />
       <module name="EastDirection" options="-parameters" />
       <module name="MHService" options="-parameters" />
       <module name="NorthDirection" options="-parameters" />
