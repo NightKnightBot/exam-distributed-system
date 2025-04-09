@@ -84,76 +84,134 @@
         }
     </style>
     <script>
+
         function fetchResult() {
-            const state = document.getElementById('state').value;
-            const centerId = document.getElementById('centerId').value;
-            const admitCardId = document.getElementById('admitCardId').value;
-            
-            if (!state || !centerId || !admitCardId) {
-                alert('Please fill all fields');
-                return;
-            }
-            
-            document.getElementById('resultDisplay').innerText = 'Result will be displayed here.';
-        }
+    
+          const state = document.getElementById("state").value;
+
+          const region = document.getElementById("region").value;
+          
+          const centerId = document.getElementById("centerId").value;
+    
+          const admitCardId = document.getElementById("admitCardId").value;
+    
+          const resultDisplay = document.getElementById("resultDisplay");
+     
+          if (!state || !centerId || !admitCardId || !region) {
+    
+            alert("Please fill all fields");
+    
+            return;
+    
+          }
+     
+          resultDisplay.innerHTML = "<p>Fetching result...</p>";
+     
+          fetch("http://127.0.0.1:8080/process", {
+    
+            method: "POST",
+    
+            headers: {
+    
+              "Content-Type": "application/json",
+    
+            },
+    
+            body: JSON.stringify({
+    
+              direction: region,
+    
+              state: state,
+    
+              center: centerId,
+    
+              rollNumber: admitCardId,
+    
+              marks: null
+    
+            }),
+    
+          })
+    
+            .then((response) => {
+    
+              if (!response.ok) {
+    
+                throw new Error("Network response was not OK");
+    
+              }
+    
+              return response.json();
+    
+            })
+    
+            .then((data) => {
+    
+              if (!data || Object.keys(data).length === 0) {
+    
+                resultDisplay.innerHTML = "<p>No result found.</p>";
+    
+              } else {
+    
+                let resultHtml = `
+    <h3>Exam Result</h3>
+    <p><strong>Total Marks:</strong> ${data.marks}%</p>    
+    <hr>
+    
+                `;
+    
+                resultDisplay.innerHTML = resultHtml;
+    
+              }
+    
+            })
+    
+            .catch((error) => {
+    
+              console.error("Error:", error);
+    
+              resultDisplay.innerHTML = "<p>An error occurred while fetching the result.</p>";
+    
+            });
+    
+        }    
     </script>
 </head>
 <body>
-    <div class="header">Central Board of Secondary Education - Examination Results</div>
-    <div class="container">
-        <h2>Secondary School Examination (Class X) Results 2024</h2>
-        <form onsubmit="event.preventDefault(); fetchResult();">
-            <label for="state">Your State:</label>
-            <select id="state" required>
-                <option value="">Select State</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chhattisgarh">Chhattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
-            </select>
-            
-            <label for="centerId">Your Center ID:</label>
-            <input type="text" id="centerId" required>
-            
-            <label for="admitCardId">Admit Card ID:</label>
-            <input type="text" id="admitCardId" required>
-            
-            <div class="button-container">
-                <button type="submit" class="btn btn-submit">Submit</button>
-                <button type="reset" class="btn btn-reset">Reset</button>
-            </div>
-        </form>
-        <h3>Result:</h3>
-        <div class="result-container">
-            <pre id="resultDisplay">Result will be displayed here.</pre>
+<div class="header">Central Board of Secondary Education - Examination Results</div>
+<div class="container">
+    <h2>Secondary School Examination (Class X) Results 2024</h2>
+    <form onsubmit="event.preventDefault(); fetchResult();">
+        <label for="region">Your Region:</label>
+        <select id="region" required>
+            <option value="">Select Region</option>
+            <option value="WEST">West</option>
+        </select>
+
+        <label for="state">Your State:</label>
+        <select id="state" required>
+            <option value="">Select State</option>
+            <option value="MAHARASTRA">Maharashtra</option>
+        </select>
+
+        <label for="centerId">Your Center ID:</label>
+        <input type="text" id="centerId" required>
+
+        <label for="admitCardId">Admit Card ID:</label>
+        <input type="text" id="admitCardId" required>
+
+        <div class="button-container">
+            <button type="submit" class="btn btn-submit">Submit</button>
+            <button type="reset" class="btn btn-reset">Reset</button>
         </div>
+    </form>
+    <h3>Result:</h3>
+    <div class="result-container">
+        <pre id="resultDisplay">Result will be displayed here.</pre>
     </div>
-    <div class="disclaimer">
-        <span class="highlight">Disclaimer:</span> Neither NIC nor the Exam Board is responsible for any inadvertent errors in results published online. The results available online are for immediate information only and cannot be treated as original mark sheets. Original mark sheets have been issued separately.
-    </div>
+</div>
+<div class="disclaimer">
+    <span class="highlight">Disclaimer:</span> Neither NIC nor the Exam Board is responsible for any inadvertent errors in results published online. The results available online are for immediate information only and cannot be treated as original mark sheets. Original mark sheets have been issued separately.
+</div>
 </body>
 </html>
