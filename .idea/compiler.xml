@@ -16,6 +16,7 @@
         <module name="MHService" />
         <module name="eurekaServer" />
         <module name="ASService" />
+        <module name="PBService" />
       </profile>
       <profile name="Annotation profile for demo (4)" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -30,7 +31,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="center_service" target="24" />
-      <module name="PBService" target="24" />
       <module name="person" target="24" />
     </bytecodeTargetLevel>
   </component>

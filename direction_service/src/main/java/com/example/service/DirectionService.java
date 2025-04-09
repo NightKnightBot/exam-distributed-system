@@ -8,12 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DirectionService {
     @Autowired
     DirectionRepository directionRepository;
     @Autowired
     FeignClientBuilder feignClientBuilder;
+
+    public List<Direction> getall() {
+        return  directionRepository.findAll();
+    }
 
     public ServiceData processData(ServiceData data) {
         Direction direction = directionRepository.findByDirection(data.getDirection());

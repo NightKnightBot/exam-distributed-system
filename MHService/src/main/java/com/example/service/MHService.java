@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MHService {
     @Autowired
@@ -16,8 +18,12 @@ public class MHService {
     @Autowired
     FeignClientBuilder feignClientBuilder;
 
+    public List<MHEntity> get() {
+        return mhRepository.findAll();
+    }
+
     public ServiceData processData(ServiceData data) {
-        MHEntity asEntity = mhRepository.findByDirection(data.getDirection());
+        MHEntity asEntity = mhRepository.findByUid(data.getCenter());
         if (asEntity == null) {
             throw new RuntimeException("Direction not found " + data.getDirection());
         }

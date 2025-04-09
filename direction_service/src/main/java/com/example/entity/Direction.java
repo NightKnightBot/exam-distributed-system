@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "DIRECTIONS")
 public class Direction {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "DIRECTION_ID")
     int id;
 

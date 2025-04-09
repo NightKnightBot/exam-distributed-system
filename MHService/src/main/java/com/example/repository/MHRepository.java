@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MHRepository extends JpaRepository<MHEntity, Integer> {
-    MHEntity findByDirection(String direction);
+    MHEntity findByUid(String uid);
 }

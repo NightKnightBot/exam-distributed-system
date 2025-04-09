@@ -3,14 +3,17 @@ package com.example.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="WEST_STATES")
+@Table(name="MAHARASTRA")
 public class MHEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="CENTER_ID")
     int id;
 
-    @Column(name="STUDENT_SERVICE_URL")
+    @Column(name = "CENTER_UID")
+    String uid;
+
+    @Column(name="CENTER_URL")
     String targetUrl;
 
     public int getId() {
@@ -29,6 +32,11 @@ public class MHEntity {
         this.targetUrl = targetUrl;
     }
 
+    public String getUid() {
+        return uid;
+    }
 
-
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 }
